@@ -26,3 +26,6 @@ Example:
 
 Input: [ [8, 0], [5, 5], [9, 1], [5, 0], [6, 2], [5, 2] ]
 Output: [ [ 5, 0 ], [ 8, 0 ], [ 5, 2 ], [ 9, 1 ], [ 6, 2 ], [ 5, 5 ] ]
+
+//Sort person's height in descending order. If heights are ===, sort by # of people in front of person.
+//Create empty array, and insert people by their 2nd integer at the same index (0 at index of 0, 2 at index of 2, etc.)
