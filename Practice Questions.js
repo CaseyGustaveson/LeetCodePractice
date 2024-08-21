@@ -16,3 +16,13 @@ Output: 6
 //make a variable for the person of intrest, or "k" and a variable to count the number of loops until k = 0
 //do a for loop, where the first index is subtracted by 1, and then moved to the end of the array.
 // once K = 0, return the counter variable.
+
+
+Suppose you are managing a queue of people at a registration counter. Each person is represented by a pair of integers where the first integer is the person's height and the second integer is the number of people in front of this person who have a height greater than or equal to theirs.
+
+Write a function to reconstruct the queue. The function should take an array of these pairs of integers and return the queue of people in the correct order.
+
+Example:
+
+Input: [ [8, 0], [5, 5], [9, 1], [5, 0], [6, 2], [5, 2] ]
+Output: [ [ 5, 0 ], [ 8, 0 ], [ 5, 2 ], [ 9, 1 ], [ 6, 2 ], [ 5, 5 ] ]
