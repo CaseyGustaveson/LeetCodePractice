@@ -18,6 +18,13 @@ Output: 6
 // once K = 0, return the counter variable.
 
 
+
+
+
+
+
+
+
 Suppose you are managing a queue of people at a registration counter. Each person is represented by a pair of integers where the first integer is the person's height and the second integer is the number of people in front of this person who have a height greater than or equal to theirs.
 
 Write a function to reconstruct the queue. The function should take an array of these pairs of integers and return the queue of people in the correct order.
@@ -27,5 +34,12 @@ Example:
 Input: [ [8, 0], [5, 5], [9, 1], [5, 0], [6, 2], [5, 2] ]
 Output: [ [ 5, 0 ], [ 8, 0 ], [ 5, 2 ], [ 9, 1 ], [ 6, 2 ], [ 5, 5 ] ]
 
-//Sort person's height in descending order. If heights are ===, sort by # of people in front of person.
-//Create empty array, and insert people by their 2nd integer at the same index (0 at index of 0, 2 at index of 2, etc.)
+//Sort person's height in descending order. If heights are ===, sort by # of people in front of person in ascending order.
+//Create empty array, and insert people by their 2nd integer at the that index ([5,0] at index of 0, [5,2] at index of 2, etc.)
+
+//Insert [9, 1] at index 1: [[9, 1]]
+//Insert [8, 0] at index 0: [[8, 0], [9, 1]]
+//Insert [6, 2] at index 2: [[8, 0], [9, 1], [6, 2]]
+//Insert [5, 0] at index 0: [[5, 0], [8, 0], [9, 1], [6, 2]]
+//Insert [5, 2] at index 2: [[5, 0], [8, 0], [5, 2], [9, 1], [6, 2]]
+//Insert [5, 5] at index 5: [[5, 0], [8, 0], [5, 2], [9, 1], [6, 2], [5, 5]]
