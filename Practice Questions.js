@@ -23,8 +23,6 @@ Output: 6
 
 
 
-
-
 Suppose you are managing a queue of people at a registration counter. Each person is represented by a pair of integers where the first integer is the person's height and the second integer is the number of people in front of this person who have a height greater than or equal to theirs.
 
 Write a function to reconstruct the queue. The function should take an array of these pairs of integers and return the queue of people in the correct order.
@@ -43,3 +41,17 @@ Output: [ [ 5, 0 ], [ 8, 0 ], [ 5, 2 ], [ 9, 1 ], [ 6, 2 ], [ 5, 5 ] ]
 //Insert [5, 0] at index 0: [[5, 0], [8, 0], [9, 1], [6, 2]]
 //Insert [5, 2] at index 2: [[5, 0], [8, 0], [5, 2], [9, 1], [6, 2]]
 //Insert [5, 5] at index 5: [[5, 0], [8, 0], [5, 2], [9, 1], [6, 2], [5, 5]]
+
+
+const queue (s) {
+s.sort((a,b)=>{
+  if (a[0] ===b[0]){
+    return a[1] - b[1];}
+  return b[0] - a[0] })
+
+  let array = []
+
+    for( let i = 0; i < s.length; i++) {
+      array.splice(s[i][1], 0, s[i])}
+  return array
+}
