@@ -32,26 +32,40 @@ Example:
 Input: [ [8, 0], [5, 5], [9, 1], [5, 0], [6, 2], [5, 2] ]
 Output: [ [ 5, 0 ], [ 8, 0 ], [ 5, 2 ], [ 9, 1 ], [ 6, 2 ], [ 5, 5 ] ]
 
-//Sort person's height in descending order. If heights are ===, sort by # of people in front of person in ascending order.
+//Sort person's height in descending order.
+//[ [9,1], [8,0], [6,2], [5,5], [5,2], [5,0] ] 
+
+//If heights are ===, sort by # of people in front of person in ascending order.
+
 //Create empty array, and insert people by their 2nd integer at the that index ([5,0] at index of 0, [5,2] at index of 2, etc.)
 
-//Insert [9, 1] at index 1: [[9, 1]]
-//Insert [8, 0] at index 0: [[8, 0], [9, 1]]
-//Insert [6, 2] at index 2: [[8, 0], [9, 1], [6, 2]]
-//Insert [5, 0] at index 0: [[5, 0], [8, 0], [9, 1], [6, 2]]
-//Insert [5, 2] at index 2: [[5, 0], [8, 0], [5, 2], [9, 1], [6, 2]]
-//Insert [5, 5] at index 5: [[5, 0], [8, 0], [5, 2], [9, 1], [6, 2], [5, 5]]
+// [9, 1] at index 1: [[9, 1]] then 
+//[8, 0] at index 0: [[8, 0], [9, 1]] then 
+// [6, 2] at index 2: [[8, 0], [9, 1], [6, 2]] then 
+//[5, 0] at index 0: [[5, 0], [8, 0], [9, 1], [6, 2]] then 
+// [5, 2] at index 2: [[5, 0], [8, 0], [5, 2], [9, 1], [6, 2]] then 
+// [5, 5] at index 5: [[5, 0], [8, 0], [5, 2], [9, 1], [6, 2], [5, 5]] then
 
 
-const queue (s) {
-s.sort((a,b)=>{
-  if (a[0] ===b[0]){
-    return a[1] - b[1];}
-  return b[0] - a[0] })
+const queue(s) {
+  //take the parameter of s, and sort it by height and people in front
+  s.sort((a, b) => {
+    //if the params of two people are the same, subtract people in front from eachother.
+    if (a[0] === b[0]) {
+      return a[1] - b[1];
+    }
+    //otherwise, subtract b from a. 
 
-  let array = []
+    return b[0] - a[0];
+  });
+  ////since .sort arranges in ascending order, lesser negative values will go first followed by the larger value
 
-    for( let i = 0; i < s.length; i++) {
-      array.splice(s[i][1], 0, s[i])}
-  return array
+  //build new array to store sorted 
+  let array = [];
+  //loop through array and add people based on their 2nd int.
+  for (let i = 0; i < s.length; i++) {
+    //splice manipulates the array, with the current user array in the loop being identified to be added to the array. 0 tells it we don't remove anything, and then lastly inserting the user into the array and the given index.
+    array.splice(s[i][1], 0, s[i]);
+  }
+  return array;
 }
