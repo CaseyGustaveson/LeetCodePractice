@@ -12,10 +12,10 @@ Output: 10
 Input: tickets = [2,3,2], k = 2
 Output: 6
 
-
-//make a variable for the person of intrest, or "k" and a variable to count the number of loops until k = 0
-//do a for loop, where the first index is subtracted by 1, and then moved to the end of the array.
-// once K = 0, return the counter variable.
+//create time counter variable
+//clone 'ticket's array, [...tickets]
+// if person at position k still has tickets to buy, 3very second process each person in the queue, give them one ticket, and update remaining ticket count.
+//if user still needs more tickets, push them to back of queue, increase time counter for each ticket given out.
 
 
 
