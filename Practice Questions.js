@@ -14,10 +14,30 @@ Output: 6
 
 //create time counter variable
 //clone 'ticket's array, [...tickets]
-// if person at position k still has tickets to buy, 3very second process each person in the queue, give them one ticket, and update remaining ticket count.
+// if person at position k still has tickets to buy, every second process each person in the queue, give them one ticket, and update remaining ticket count.
 //if user still needs more tickets, push them to back of queue, increase time counter for each ticket given out.
 
+let counter = 0;
+let userTickets = [...tickets];
 
+const ticketHolder = (k) => {
+  while (userTickets[k] > 0) {
+    for (let i = 0; i < userTickets.length; i++) {
+      if (userTickets[i] > 0) {
+        userTickets[i]--;
+        counter++;
+        if (userTickets[i] > 0) {
+          let person = userTickets.splice(i, 1)[0];
+          userTickets.push(person);
+          i--; // Adjust index to account for the removed person
+        }
+      }
+      if (userTickets[k] === 0 && i === k) {
+        return counter;
+      }
+    }
+  }
+};
 
 
 
