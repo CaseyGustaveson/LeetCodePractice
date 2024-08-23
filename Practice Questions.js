@@ -27,9 +27,11 @@ const ticketHolder = (k) => {
         userTickets[i]--;
         counter++;
         if (userTickets[i] > 0) {
+          //variable to remove(splice) i, delete only 1 element, and remove at index of 0.
           let person = userTickets.splice(i, 1)[0];
+          //then take the removed i and push to back of the array.
           userTickets.push(person);
-          i--; // Adjust index to account for the removed person
+          i--; 
         }
       }
       if (userTickets[k] === 0 && i === k) {
